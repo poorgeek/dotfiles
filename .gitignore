@@ -1,3 +1,9 @@
+# backup files from vim
+*~
+.vim/backups
+.vim/swaps
+.vim/.netrwhist
+
 # Compiled Python files
 *.pyc
 
