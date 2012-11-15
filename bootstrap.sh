@@ -33,7 +33,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   ln -sf $CWD/gitprompt/git-prompt.sh $HOME/.git-prompt.sh
 
   SUBL_SRC="$CWD/sublime2"
-  SUBL_TARGET="$HOME/Library/Application\ Support/Sublime\ Text\ 2/Packages/User"
+  SUBL_TARGET="$HOME/Library/Application Support/Sublime Text 2/Packages/User"
   for file in `ls -A $SUBL_SRC`
   do
     if [ -e "$SUBL_TARGET/$file" ]
