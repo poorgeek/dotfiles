@@ -1,5 +1,7 @@
-# LinuxBozo's dotfiles 
-* Based on [Mathis Bynens](http://github.com/mathiasbynens/dotfiles) dotfiles setup
+# Poorgeek's dotfiles
+* Based on the dotfiles setup of:
+  * [Mathis Bynens](http://github.com/mathiasbynens/dotfiles)
+  * [Adam Kendall's](https://github.com/LinuxBozo/dotfiles)
 * Designed with OSX in mind
 * Targetted mainly toward python/groovy/grails development
 * Assumes you work with git and svn
