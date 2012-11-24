@@ -1,0 +1,16 @@
+{
+	"auto_upgrade_last_run": 1353040451,
+	"installed_packages":
+	[
+		"CoffeeScript",
+		"Git",
+		"JSHint",
+		"LESS",
+		"Package Control",
+		"SCSS",
+		"Solarized Color Scheme",
+		"Theme - Refined",
+		"Theme - Refresh",
+		"Theme - Soda"
+	]
+}
