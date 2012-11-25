@@ -8,6 +8,7 @@
 	"default_line_ending": "unix",
 	"detect_indentation": true,
 	"draw_indent_guides": false,
+	"ensure_newline_at_eof_on_save": true,
 	"font_face": "Anonymous Pro",
 	"font_size": 14,
 	"gutter": true,
@@ -20,6 +21,11 @@
 	"line_numbers": true,
 	"margin": 2,
 	"preview_on_click": true,
+	"rulers":
+	[
+		80,
+		150
+	],
 	"show_full_path": true,
 	"show_tab_close_buttons": true,
 	"smart_indent": true,
