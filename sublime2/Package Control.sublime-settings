@@ -3,6 +3,7 @@
 	"installed_packages":
 	[
 		"CoffeeScript",
+		"DocBlockr",
 		"EditorConfig",
 		"Git",
 		"Grails",
@@ -12,6 +13,7 @@
 		"Modific",
 		"Package Control",
 		"SCSS",
+		"SideBarEnhancements",
 		"Solarized Color Scheme",
 		"SublimeCodeIntel",
 		"SublimeLinter",
