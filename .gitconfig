@@ -67,13 +67,13 @@
     # Include summaries of merged commits in newly created merge commit messages
     log = true
 [push]
-  default = tracking
+    default = simple
 [branch "master"]
-  remote = origin
-  merge = refs/heads/master
+    remote = origin
+    merge = refs/heads/master
 [branch "develop"]
-  remote = origin
-  merge = refs/heads/develop
+    remote = origin
+    merge = refs/heads/develop
 
 # URL shorthands
 [url "git@github.com:"]
@@ -89,8 +89,8 @@
 [url "git://gist.github.com/"]
     insteadOf = "gist:"
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path =
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
