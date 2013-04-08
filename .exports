@@ -17,6 +17,6 @@ export HISTCONTROL=ignoredups
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
 export GRAILS_HOME='/opt/grails-2.1.1'
-export GROOVY_HOME='/usr/local/Cellar/groovy/2.0.5/libexec'
+export GROOVY_HOME='/usr/local/Cellar/groovy/2.1.1/libexec'
 
 export PATH=$PATH
