@@ -3,8 +3,9 @@
     email = poorgeek@gmail.com
 
 [alias]
-    # View the SHA, description, and history graph of the latest 20 commits
-    l = log --pretty=oneline -n 20 --decorate --graph
+    # View the SHA, description, and history graph of the latest 10 commits
+    l = log --pretty=oneline -n 10 --decorate --graph --abbrev-commit
+    la = log --graph --decorate --pretty=oneline --abbrev-commit --all
     # View the current working tree status using the short format
     s = status -sb
     # Show the diff between the latest commit and the current state
@@ -31,6 +32,8 @@
     undo = reset --hard
     # Undo a `git push`
     undopush = push -f origin HEAD^:master
+    # Undo the last commit
+    oops = reset HEAD^
 
 [apply]
     # Detect whitespace errors when applying a patch
@@ -55,6 +58,7 @@
     frag = magenta bold
     old = red bold
     new = green bold
+    whitespace = red reverse
 [color "status"]
     added = yellow
     changed = green
