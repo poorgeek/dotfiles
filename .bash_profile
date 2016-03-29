@@ -33,3 +33,5 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
 [[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+source $(brew --prefix nvm)/nvm.sh
