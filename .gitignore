@@ -19,3 +19,6 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 ._*
+
+# Things that might be sensitive
+.extra
