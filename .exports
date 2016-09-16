@@ -19,6 +19,9 @@ export HISTCONTROL=ignoredups
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
+# Export an env var for use by various projects
+export ENV=sandbox
+
 # Export NVM
 export NVM_DIR=~/.nvm
 
