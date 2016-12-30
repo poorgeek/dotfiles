@@ -54,9 +54,8 @@
 
 [core]
     # Use custom `.gitignore` and `.gitattributes`
-    excludesfile = ~/.gitignore
+		excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
-    autocrlf = input
     quotepath = off
 
 [color]
