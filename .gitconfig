@@ -48,6 +48,11 @@
     # Undo the last commit
     oops = reset HEAD^
 
+		# Toggle emails used for profile
+		personalprofile = config user.email \"poorgeek@gmail.com\"
+		tpgprofile = config user.email \"jstockton@paciellogroup.com\"
+		whoami = config user.email
+
 [apply]
     # Detect whitespace errors when applying a patch
     whitespace = fix
