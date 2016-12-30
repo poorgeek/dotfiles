@@ -105,3 +105,12 @@
     pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
     insteadOf = "gist:"
+[filter "lfs"]
+		clean = git-lfs clean -- %f
+		smudge = git-lfs smudge -- %f
+		required = true
+		process = git-lfs filter-process
+[credential]
+		helper = cache --timeout=3600
+[commit]
+		template = /Users/jstockton/.stCommitMsg
