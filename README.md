@@ -6,26 +6,38 @@
 * Targetted mainly toward python/groovy/grails development
 * Assumes you work with git and svn
 
+![Screenshot of my shell prompt](https://i.imgur.com/EkEtphC.png)
+
 ## Installation
+
+**Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
 ### Using Git and the bootstrap script
 
 You can clone the repository wherever you want. (I like to keep it in `~/.dotfiles`) The bootstrapper script will pull in the latest version and symlink the files to your home folder.
 
 ```bash
-git clone https://github.com/LinuxBozo/dotfiles.git && cd dotfiles && ./bootstrap.sh
+git clone https://github.com/poorgeek/dotfiles.git && cd dotfiles && ./bootstrap.sh
 ```
 
 To update, `cd` into your local `dotfiles` repository and then:
 
 ```bash
-./bootstrap.sh
+source bootstrap.sh
 ```
 
 Alternatively, to update while avoiding the confirmation prompt:
 
 ```bash
-./bootstrap.sh -f
+set -- -f; source bootstrap.sh
+```
+
+### Git-free install
+
+To install these dotfiles without Git:
+
+```bash
+cd; curl -#L https://github.com/poorgeek/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,.osx,LICENSE-MIT.txt}
 ```
 
 To update later on, just run that command again.
@@ -34,10 +46,10 @@ To update later on, just run that command again.
 
 If `~/.path` exists, it will be sourced along with the other files
 
-Here’s an example `~/.path` file that adds `~/utils` to the `$PATH`:
+Here’s an example `~/.path` file that adds `/usr/local/bin` to the `$PATH`:
 
 ```bash
-export PATH="$HOME/utils:$PATH"
+export PATH="/usr/local/bin:$PATH"
 ```
 
 ### Add custom commands without creating a new fork
@@ -46,19 +58,36 @@ If `~/.extra` exists, it will be sourced along with the other files. You can use
 
 You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/LinuxBozo/dotfiles/fork_select) instead, though.
 
-### Sensible OS X defaults
+### Sensible macOS defaults
 
-When setting up a new Mac, you may want to set some sensible OS X defaults:
+When setting up a new Mac, you may want to set some sensible macOS defaults:
 
 ```bash
-./.osx
+./.macos
 ```
 
 ### Install Homebrew formulae
 
-Definitely, you'll want to grab [Homebrew](http://mxcl.github.com/homebrew/). This is like macports, but IMHO, better.
-When setting up a new Mac, you may want to install some common Homebrew formulae (after installing Homebrew, of course). This little script will do it all for you:
+When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
 
 ```bash
-./.brew
+./brew.sh
 ```
+
+## Thanks to…
+
+* [Mathias Bynens](https://mathiasbynens.be/)
+* @ptb and [his _OS X Lion Setup_ repository](https://github.com/ptb/Mac-OS-X-Lion-Setup)
+* [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
+* [Chris Gerke](http://www.randomsquared.com/) and his [tutorial on creating an OS X SOE master image](http://chris-gerke.blogspot.com/2012/04/mac-osx-soe-master-image-day-7.html) + [_Insta_ repository](https://github.com/cgerke/Insta)
+* [Cătălin Mariș](https://github.com/alrra) and his [dotfiles repository](https://github.com/alrra/dotfiles)
+* [Gianni Chiappetta](http://gf3.ca/) for sharing his [amazing collection of dotfiles](https://github.com/gf3/dotfiles)
+* [Jan Moesen](http://jan.moesen.nu/) and his [ancient `.bash_profile`](https://gist.github.com/1156154) + [shiny _tilde_ repository](https://github.com/janmoesen/tilde)
+* [Lauri ‘Lri’ Ranta](http://lri.me/) for sharing [loads of hidden preferences](http://osxnotes.net/defaults.html)
+* [Matijs Brinkhuis](http://hotfusion.nl/) and his [dotfiles repository](https://github.com/matijs/dotfiles)
+* [Nicolas Gallagher](http://nicolasgallagher.com/) and his [dotfiles repository](https://github.com/necolas/dotfiles)
+* [Sindre Sorhus](http://sindresorhus.com/)
+* [Tom Ryder](https://sanctum.geek.nz/) and his [dotfiles repository](https://sanctum.geek.nz/cgit/dotfiles.git/about)
+* [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [OSXDefaults project](https://github.com/kevinSuttle/OSXDefaults), which aims to provide better documentation for [`~/.macos`](https://mths.be/macos)
+* [Haralan Dobrev](http://hkdobrev.com/)
+* anyone who [contributed a patch](https://github.com/mathiasbynens/dotfiles/contributors) or [made a helpful suggestion](https://github.com/mathiasbynens/dotfiles/issues)

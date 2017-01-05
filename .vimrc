@@ -1,56 +1,32 @@
-" Set syntax highlighting options.
-let g:solarized_termtrans=0
-syntax enable
+" Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
+let g:solarized_termtrans=1
 
-" Enabled later, after Pathogen
-filetype off
-
+" Make Vim more useful
+set nocompatible
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set clipboard=unnamed
+" Enhance command-line completion
+set wildmenu
+" Allow cursor keys in insert mode
+set esckeys
+" Allow backspace in insert mode
+set backspace=indent,eol,start
+" Optimize for fast terminal connections
+set ttyfast
+" Add the g flag to search/replace by default
+set gdefault
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
 " Change mapleader
 let mapleader=","
 
-" Set some junk
-set autoindent " Copy indent from last line when starting new line.
-set backspace=indent,eol,start
-set backupdir=~/.vim/backups
-set clipboard=unnamed " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set cursorline " Highlight current line
-set diffopt=filler " Add vertical spaces to keep right and left aligned
-set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
-set directory=~/.vim/swaps " Local dirs
-set encoding=utf-8 nobomb " BOM often causes trouble
-set esckeys " Allow cursor keys in insert mode.
-set expandtab " Expand tabs to spaces
-set exrc " Enable per-directory .vimrc files and disable unsafe commands in them
-set fcs=fold:-
-set foldcolumn=4 " Column to show folds
-set foldenable
-set foldlevel=2
-" set foldlevelstart=2 " Sets `foldlevel` when editing a new buffer
-set foldmethod=syntax " Markers are used to specify folds.
-set foldminlines=0 " Allow folding single lines
-set foldnestmax=3 " Set max fold nesting level
-set formatoptions=
-set formatoptions+=c " Format comments
-set formatoptions+=r " Continue comments by default
-set formatoptions+=o " Make comment when using o or O from comment line
-set formatoptions+=q " Format comments with gq
-set formatoptions+=n " Recognize numbered lists
-set formatoptions+=2 " Use indent from 2nd line of a paragraph
-set formatoptions+=l " Don't break lines that are already long
-set formatoptions+=1 " Break before 1-letter words
-set gdefault " By default add g flag to search/replace. Add g to toggle.
-set hidden " When a buffer is brought to foreground, remember undo history and marks.
-set history=1000 " Increase history from 20 default to 1000
-set hlsearch " Highlight searches
-set ignorecase " Ignore case of searches.
-set incsearch " Highlight dynamically as pattern is typed.
-set laststatus=2 " Always show status line
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_ " Show “invisible” characters
-set list
-set magic " Enable extended regexes.
-set modeline " Respect modeline in files
+" Don’t create backups when editing files in certain directories
+set backupskip=/tmp/*,/private/tmp/*
+
+" Respect modeline in files
+set modeline
 set modelines=4
 set mouse=a " Enable moouse in all in all modes.
 set nocompatible " Make Vim more useful
@@ -168,48 +144,16 @@ function! StripWhitespace ()
     call setpos('.', save_cursor)
     call setreg('/', old_query)
 endfunction
-noremap <leader>ss :call StripWhitespace ()<CR>
+noremap <leader>ss :call StripWhitespace()<CR>
+" Save a file as root (,W)
+noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
-" Fix page up and down
-map <PageUp> <C-U>
-map <PageDown> <C-D>
-imap <PageUp> <C-O><C-U>
-imap <PageDown> <C-O><C-D>
-
-" Restore cursor position
-autocmd BufReadPost *
-  \ if line("'\"") > 1 && line("'\"") <= line("$") |
-  \   exe "normal! g`\"" |
-  \ endif
-
-" Markdown
-augroup mkd
-  autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
-augroup END
-
-" Gradle
-au BufRead,BufNewFile *.gradle set ft=gradle syntax=groovy
-
-" JSON
-au BufRead,BufNewFile *.json set ft=json syntax=javascript
-
-" Jade
-au BufRead,BufNewFile *.jade set ft=jade syntax=jade
-
-" Common Ruby files
-au BufRead,BufNewFile Rakefile,Capfile,Gemfile,.autotest,.irbrc,*.treetop,*.tt set ft=ruby syntax=ruby
-
-" Nu
-au BufNewFile,BufRead *.nu,*.nujson,Nukefile setf nu
-
-" Coffee Folding
-au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
-
-" CtrlP
-let g:ctrlp_working_path_mode = 2
-let g:ctrlp_mru_files = 1
-
-" Emulate bundles, allow plugins to live independantly. Easier to manage.
-call pathogen#runtime_append_all_bundles()
-filetype plugin indent on
-
+" Automatic commands
+if has("autocmd")
+	" Enable file type detection
+	filetype on
+	" Treat .json files as .js
+	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+	" Treat .md files as Markdown
+	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+endif
